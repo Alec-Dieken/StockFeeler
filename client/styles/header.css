@@ -1,0 +1,9 @@
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0.5rem;
+}
