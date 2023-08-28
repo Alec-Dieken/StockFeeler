@@ -7,6 +7,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function LoginForm({ status }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loginError, setLoginError] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,7 +17,7 @@ function LoginForm({ status }) {
             password,
         });
         if (response.error) {
-            console.error(response.error);
+            setLoginError("Invalid username/password.");
         } else {
             window.location.href = "/";
         }
@@ -36,6 +37,7 @@ function LoginForm({ status }) {
                     <Typography component="h1" variant="h5">
                         Login
                     </Typography>
+                    {loginError && <Typography color="error">{loginError}</Typography>}
                     <form onSubmit={handleSubmit} noValidate>
                         <TextField
                             variant="outlined"

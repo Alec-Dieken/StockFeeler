@@ -6,10 +6,39 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 function RegisterForm({ status }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [username, setUsername] = useState("");
+    const [usernameError, setUsernameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
+    const [secPasswordError, setSecPasswordError] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        let e = 0;
+        if (username.length < 3) {
+            setUsernameError("Username should be at least 3 characters long.");
+            e += 1;
+        }
+
+        if (password.length < 8) {
+            setPasswordError("Password should be at least 8 characters long.");
+            e += 1;
+        }
+
+        if (email.indexOf("@") === -1) {
+            setEmailError("Please provide a valid email.");
+            e = +1;
+        }
+
+        if (password !== confirmPassword) {
+            setSecPasswordError("Passwords do not match.");
+            e += 1;
+        }
+
+        if (e > 0) return;
+
         const response = await fetch("/api/register", {
             method: "POST",
             headers: {
@@ -58,6 +87,7 @@ function RegisterForm({ status }) {
                             onChange={(e) => setUsername(e.target.value)}
                             autoFocus
                         />
+                        {usernameError && <Typography color="error">{usernameError}</Typography>}
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -71,6 +101,7 @@ function RegisterForm({ status }) {
                             color="neutral"
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        {emailError && <Typography color="error">{emailError}</Typography>}
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -85,6 +116,22 @@ function RegisterForm({ status }) {
                             color="neutral"
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        {passwordError && <Typography color="error">{passwordError}</Typography>}
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="confirm-password"
+                            label="Confirm Password"
+                            type="password"
+                            id="confirm-password"
+                            autoComplete="new-password"
+                            value={confirmPassword}
+                            color="neutral"
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                        {secPasswordError && <Typography color="error">{secPasswordError}</Typography>}
                         <Button type="submit" fullWidth variant="contained" color="secondary" sx={{ mt: 3 }}>
                             Register
                         </Button>
