@@ -95,7 +95,7 @@ npm run dev
 Congratulations! You've successfully set up and started the StockFeeler application on your local environment. Enjoy improving your stock trading decisions!
 
 ## Schema
-
+```
 Table users {
   _id ObjectId
   username string
@@ -145,5 +145,6 @@ Table assets {
 
 ref: votes.userID - users._id
 ref: votes.queryID - queries._id
+```
 
 ## API Endpoints
