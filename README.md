@@ -7,7 +7,6 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation and Setup](#installation-and-setup)
-- [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [License](#license)
 - [Contact](#contact)
@@ -35,8 +34,66 @@ A leaderboard will also be featured, showcasing the users with the highest predi
 
 ## Installation and Setup
 
+To get the StockFeeler application up and running on your local environment, follow these steps:
 
-## Usage
+1. **Clone the Repository**:
 
+```bash
+git clone [repository_url] StockFeeler
+cd StockFeeler
+```
+
+2. **Organize Folders**:
+
+- After cloning, ensure that the 'client' and 'server' folders are directly inside the main StockFeeler directory.
+
+3. **Setup Environment Variables**:
+
+- Before starting the servers, you need to setup your environment variables. Navigate to the .env file inside both client and server directories.
+- Change the variables, particularly those related to the database, to match your configuration.
+
+4. Install Dependencies:
+
+- You will need to install the required packages for both the client and the server.
+
+First, for the server:
+
+```bash
+cd server
+npm install
+```
+
+Then, for the client:
+
+```bash
+cd ../client
+npm install
+```
+
+5. Starting the Application:
+
+- You will need two separate terminal/console windows or tabs, one for the client and one for the server.
+
+To start the server:
+
+```bash
+cd server
+npm start
+```
+
+To start the client in another terminal:
+
+```bash
+cd client
+npm run dev
+```
+
+6. Access the Application:
+- After starting both the client and the server, open your browser and navigate to http://localhost:3000 (or the port specified) to access the StockFeeler application.
+
+7. (Optional) Set Up Database:
+- If you're running this for the first time, you might need to set up your database, seed it with initial data, or run migrations if provided in the repository.
+
+Congratulations! You've successfully set up and started the StockFeeler application on your local environment. Enjoy improving your stock trading decisions!
 
 ## API Endpoints
