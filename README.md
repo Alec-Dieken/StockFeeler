@@ -91,9 +91,6 @@ npm run dev
 6. Access the Application:
 - After starting both the client and the server, open your browser and navigate to http://localhost:3000 (or the port specified) to access the StockFeeler application.
 
-7. (Optional) Set Up Database:
-- If you're running this for the first time, you might need to set up your database, seed it with initial data, or run migrations if provided in the repository.
-
 Congratulations! You've successfully set up and started the StockFeeler application on your local environment. Enjoy improving your stock trading decisions!
 
 ## API Endpoints
