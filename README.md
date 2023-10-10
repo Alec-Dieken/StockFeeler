@@ -5,20 +5,18 @@
 
 - [Overview](#overview)
 - [Features](#features)
-- [Demo](#demo)
 - [Technologies Used](#technologies-used)
 - [Installation and Setup](#installation-and-setup)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
-- [Contribution Guidelines](#contribution-guidelines)
-- [Testing](#testing)
 - [License](#license)
-- [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
 ## Overview
 
-StockFeeler was created with the purpose of giving it's users a quick and convenient way to practice and improve their decision making when trading stocks, as well as comparing their prediction abilities with other users. 
+StockFeeler was created with the purpose of giving it's users a quick and convenient way to practice and improve their decision making when trading stocks, as well as comparing their prediction abilities with other users. Users are presented with a year of data from a randomly chosen stock from the top 500 stocks. The user then predicts where the stock price will stand in X amount of days. After submitting their guess, the system displays the average prediction by all users for that stock. The user's guess is stored, and after those X amount of days, the server will check for the actual result of that stock's price. The closer the user's guess to the actual price, the more points they earn.
+A leaderboard will also be featured, showcasing the users with the highest prediction accuracies. The stock data needed for these games will be sourced from the Polygon.io API. In order to continuously update data and scores, node-CRON is used to schedule server side functions that perform all the necessary tasks such as: fetching new stock data, updating news, updating player scores, removing old stocks from the queries, and updating predication averages.
+
 
 ## Features
 
@@ -27,15 +25,13 @@ StockFeeler was created with the purpose of giving it's users a quick and conven
 - **Interactive Charts**: TradingView's free-to-use chart modules provide an interactive and modern chart used to display stock price data.
 - **Leaderboard**: View the 'Leaderboard' page to compare yourself with other users.
 
-## Demo
-
 
 ## Technologies Used
 
-- **Backend**: (Node.js, Express)
-- **Frontend**: (React, Next.js, NextAuth.js)
-- **Database**: (MongoDB)
-- **Others**: (MaterialUI, Node-Cron)
+- **Backend**: Node.js, Express
+- **Frontend**: React, Next.js, NextAuth.js
+- **Database**: MongoDB
+- **Others**: MaterialUI, Node-Cron
 
 ## Installation and Setup
 
@@ -44,10 +40,3 @@ StockFeeler was created with the purpose of giving it's users a quick and conven
 
 
 ## API Endpoints
-
-
-## Contribution Guidelines
-
-
-## Testing
-
