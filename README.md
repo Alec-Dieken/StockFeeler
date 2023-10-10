@@ -7,6 +7,7 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation and Setup](#installation-and-setup)
+- [Schema](#schema)
 - [API Endpoints](#api-endpoints)
 - [License](#license)
 - [Contact](#contact)
@@ -92,5 +93,57 @@ npm run dev
 - After starting both the client and the server, open your browser and navigate to http://localhost:3000 (or the port specified) to access the StockFeeler application.
 
 Congratulations! You've successfully set up and started the StockFeeler application on your local environment. Enjoy improving your stock trading decisions!
+
+## Schema
+
+Table users {
+  _id ObjectId
+  username string
+  email string
+  password string
+  rankedScore double
+  trustScore double
+  avatar string
+}
+
+Table queries {
+  _id ObjectId
+  ticker string
+  duration integer
+  chartData Array
+  lastClosingPrice double
+  avgChange double
+  result double
+  average double
+  isActive boolean
+  needsUpdate boolean
+  updateAt timestamp
+  random double
+  createAt timestamp
+}
+
+Table votes {
+  _id ObjectId
+  userID ObjectId
+  queryID ObjectId
+  prediction double
+  isActive boolean
+  score double
+  addScoreToUser boolean
+  createdAt timestamp
+}
+
+Table assets {
+  _id ObjectId
+  ticker string
+  name string
+  description string
+  website string
+  type string
+  news Array
+}
+
+ref: votes.userID - users._id
+ref: votes.queryID - queries._id
 
 ## API Endpoints
